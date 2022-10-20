@@ -1,0 +1,51 @@
+tabla empleado
+
+create table empleado(
+codEmp char(8),
+nom varchar(40) not null,
+tip varchar(15) not null,
+usu varchar(10) not null,
+pas varchar(10) not null,
+primary key(codEmp)
+);
+insert into empleado values('E001','Jean Huayta','Vendedor','jean','jean');
+
+tabla cliente
+
+create table cliente(
+codCli char(8)not null,
+nom varchar(40)not null,
+dir varchar(40)not null,
+tel varchar(40) not null,
+cor varchar(40)not null,
+primary key(codCli)
+);
+insert into cliente values('70000009','Jean Huayta','Av. Jorge Chavez 123','940221473','jean@hotmail.com');
+
+tabla categoria
+
+create table categoria(
+codCateg char(8)not null,
+nom varchar(40)not null,
+primary key(codCateg)
+);
+
+tabla pedido
+
+create table pedido(
+num char(8) not null,
+fec varchar(20)not null,
+tot double not null,
+codCli char(8)not null,
+codEmp char(8)not null,
+primary key(num),
+foreign key(codCli)references cliente,
+foreign key(codEmp)references empleado
+);
+insert into pedido values('P001','01/01/2021',0,'70000009','E001');
+
+
+
+
+
+
